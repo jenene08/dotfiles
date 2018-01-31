@@ -147,40 +147,14 @@ bindkey '^R' history-incremental-pattern-search-backward
 alias la='ls -a'
 alias ll='ls -l'
 
-#alias rm='rm -i'
-#alias cp='cp -i'
-#alias mv='mv -i'
-
-#alias mkdir='mkdir -p'
-
-# alias raspi='ssh admin@192.168.3.200 -p 20022 -i /Users/andrey/.ssh/id_rsa'
 alias rgr='ranger-cd'
 alias relogin='exec $SHELL'
 
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
 
-# グローバルエイリアス
-#alias -g L='| less'
-#alias -g G='| grep'
-
-# C で標準出力をクリップボードにコピーする
-# mollifier delta blog : http://mollifier.hatenablog.com/entry/20100317/p1
-if which pbcopy >/dev/null 2>&1 ; then
-    # Mac
-#    alias -g C='| pbcopy'
-#elif which xsel >/dev/null 2>&1 ; then
-    # Linux
-#    alias -g C='| xsel --input --clipboard'
-#elif which putclip >/dev/null 2>&1 ; then
-    # Cygwin
-#    alias -g C='| putclip'
-fi
-
-
-
 ########################################
-# OS 別の設定
+OS 別の設定
 case ${OSTYPE} in
     darwin*)
         #Mac用の設定
@@ -238,27 +212,3 @@ function ranger-cd {
     rm -f -- "$tempfile"
 }
 
-# This binds Ctrl-O to ranger-cd:
-# bind '"\C-o":"ranger-cd\C-m"'
-#
-
-## ssh先の場合tmux自動起動
-if [[ -n "${REMOTEHOST}${SSH_CONNECTION}" && -z "$TMUX" && -z "$STY" ]] && type tmux >/dev/null 2>&1; then
-    function confirm {
-        MSG=$1
-        while :
-        do
-            echo -n "${MSG} [Y/N]: "
-            read ans
-            case $ans in
-                [yY]) return 0 ;;
-                [nN]) return 1 ;;
-            esac
-        done
-    }
-    option=""
-    if tmux has-session && tmux list-sessions; then
-        option="attach"
-    fi
-    tmux $option && confirm "exit?" && exit
-fi
