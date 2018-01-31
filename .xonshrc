@@ -1,0 +1,27 @@
+source-zsh ~/.zshrc
+source-zsh ~/.zshenv
+
+# プロンプト
+# $PROMPT = "{GREEN}{cwd}\n{WHITE}$ "
+# Ctrl + D で終了しない
+$IGNOREEOF = True
+# tabではなく空白4つ
+$INDENT = "    "
+# 補完時に大小区別しない
+$CASE_SENSITIVE_COMPLETIONS = False
+# 連続重複コマンドを保存しない
+# $HISTCONTROL = (ignoredups)
+# 括弧を補完
+$XONSH_AUTOPAIR = True
+# ディレクトリ名を入力すればcdできる
+$AUTO_CD = True
+# エラー全て吐くように
+$XONSH_SHOW_TRACEBACK = True
+# プロンプトの設定タイムアウトのメッセージ抑制
+$SUPPRESS_BRANCH_TIMEOUT_MESSAGE = True
+
+# エイリアス
+# aliases["la"] = "ls -la"
+# aliases["ll"] = "ls -l"
+# aliases["rgr"] = "ranger"
+# aliases["relogin"] = "exec $SHELL"
