@@ -40,6 +40,12 @@ Plugin 'https://github.com/sickill/vim-monokai.git'
 Plugin 'https://github.com/davidhalter/jedi-vim.git'
 " Dont show docstring
 autocmd FileType python setlocal completeopt-=preview
+" Autopep8
+Plugin 'https://github.com/tell-k/vim-autopep8.git'
+" Set F8 to do autopep8
+autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
+" Don't show diff window  
+let g:autopep8_disable_show_diff=1
 " vim-pyenv(Make path to pyenv in vim)
 Plugin 'https://github.com/lambdalisue/vim-pyenv.git'
 " Syntax checking
@@ -75,7 +81,7 @@ set smartindent
 " 自動で挿入されるインデントのスペース幅
 set smarttab
 set shiftwidth=4
-"tab キーを押した時に挿入されるスペース量 
+"tab キーを押した時に挿入されるスペース量
 set softtabstop=0
 " バックスペースでインデントや改行を削除できるようにする
 set backspace=2
@@ -163,4 +169,3 @@ endif
 " -------------------------------------------------------------------------
 " syntastic Syntax checker
 let g:syntastic_python_checkers = ['pyflakes', 'pep8']
-
