@@ -154,7 +154,7 @@ alias relogin='exec $SHELL'
 alias sudo='sudo '
 
 ########################################
-OS 別の設定
+# OS 別の設定
 case ${OSTYPE} in
     darwin*)
         #Mac用の設定
