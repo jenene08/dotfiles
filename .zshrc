@@ -146,6 +146,7 @@ bindkey '^R' history-incremental-pattern-search-backward
 
 alias la='ls -a'
 alias ll='ls -l'
+alias hs='history | grep '
 
 alias rgr='ranger-cd'
 alias relogin='exec $SHELL'
@@ -212,3 +213,19 @@ function ranger-cd {
     rm -f -- "$tempfile"
 }
 
+# sshごとに背景を変える
+function ssh_color() {
+ case $1 in
+   # product- から始まるところは背景を赤くする
+   # staging- から始まるところは背景を青くする
+
+   raspi* ) echo -e "\033]50;SetProfile=EricaHartmann\a" ;;
+   # staging-* ) echo -e "\033]50;SetProfile=zsh_blue\a" ;;
+   * ) echo -e "\033]50;SetProfile=zsh\a" ;;
+ esac
+  ssh $@
+  echo -e "\033]50;SetProfile=zsh\a"
+}
+
+alias ssh='ssh_color'
+compdef _ssh ssh_color=ssh
