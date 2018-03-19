@@ -116,8 +116,12 @@ augroup highlightIdegraphicSpace
   autocmd VimEnter,WinEnter * match IdeographicSpace /　/
 augroup END
 " 背景色をターミナルと同じにする
-autocmd ColorScheme * highlight Normal ctermbg=none
-autocmd ColorScheme * highlight LineNr ctermbg=none
+" 参考
+" http://tech.alters.co.jp/vimrc/vimrc%E3%81%AEcolor%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E4%B8%80%E8%A6%A7/
+" autocmd ColorScheme * highlight Normal ctermbg=none
+" autocmd ColorScheme * highlight NonText ctermbg=none
+" autocmd ColorScheme * highlight LineNr ctermbg=none
+
 " シンタックス
 syntax on
 " カラースキーム
