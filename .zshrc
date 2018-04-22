@@ -17,6 +17,9 @@ if which jenv > /dev/null; then
   eval "$(jenv init -)"
 fi
 
+# cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # Zsh
 fpath=(~/.functions ${fpath})
 autoload -Uz git-escape-magic
