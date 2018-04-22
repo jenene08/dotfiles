@@ -10,6 +10,13 @@ eval "$(pyenv virtualenv-init -)"
 
 export GOPATH=$HOME/.go
 
+# jenv java version maneger
+if which jenv > /dev/null; then
+  # JENV_ROOTがemptyの場合、'${HOME}/.jenv'がrootと設定される
+  export JENV_ROOT="/usr/local/var/jenv"
+  eval "$(jenv init -)"
+fi
+
 # Zsh
 fpath=(~/.functions ${fpath})
 autoload -Uz git-escape-magic
@@ -150,6 +157,7 @@ alias hs='history | grep '
 
 alias rgr='ranger-cd'
 alias relogin='exec $SHELL'
+alias vim='gvim'
 
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
@@ -221,11 +229,19 @@ function ssh_color() {
 
    raspi* ) echo -e "\033]50;SetProfile=EricaHartmann\a" ;;
    # staging-* ) echo -e "\033]50;SetProfile=zsh_blue\a" ;;
-   * ) echo -e "\033]50;SetProfile=zsh\a" ;;
+   * ) echo -e "\033]50;SetProfile=ssh\a" ;;
  esac
   ssh $@
-  echo -e "\033]50;SetProfile=zsh\a"
+  echo -e "\033]50;SetProfile=Default\a"
 }
 
 alias ssh='ssh_color'
 compdef _ssh ssh_color=ssh
+
+function pdftoclip {
+    tempfile="$(mktemp)"
+    pdftotext "$1" "$tempfile"
+    cat "$tempfile" | pbcopy
+    rm "$tempfile"
+}
+
