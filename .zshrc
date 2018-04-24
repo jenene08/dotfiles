@@ -161,6 +161,7 @@ alias hs='history | grep '
 alias rgr='ranger-cd'
 alias relogin='exec $SHELL'
 alias vim='gvim'
+alias lmk='latexmk -pvc'
 
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
