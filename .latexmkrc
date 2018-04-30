@@ -1,6 +1,7 @@
 #!/usr/bin/env perl
 
-$pdflatex      = 'lualatex %O -synctex=1 -halt-on-error %S';
+$pdflatex      = 'xelatex -synctex=1 -halt-on-error' ;
+$xelatex       = 'xelatex -synctex=1 -halt-on-error' ;
 $bibtex        = 'upbibtex %O %B';
 $makeindex     = 'mendex -U %O -o %D %S';
 $max_repeat    = 5;
