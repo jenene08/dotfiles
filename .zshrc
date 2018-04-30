@@ -249,3 +249,9 @@ function pdftoclip {
     rm "$tempfile"
 }
 
+function runcpp {
+    tempfile="$(mktemp)"
+    g++ "$1" -o "${tempfile}"
+    ${tempfile}
+    rm ${tempfile}
+}
