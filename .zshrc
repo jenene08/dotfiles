@@ -8,6 +8,10 @@ compinit
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+# pipenv shell completion
+eval "$(pipenv --completion)"
+
+# GO
 export GOPATH=$HOME/.go
 
 # jenv java version maneger
@@ -242,16 +246,12 @@ function ssh_color() {
 alias ssh='ssh_color'
 compdef _ssh ssh_color=ssh
 
-function pdftoclip {
+function pdftoclip() {
     tempfile="$(mktemp)"
     pdftotext "$1" "$tempfile"
     cat "$tempfile" | pbcopy
     rm "$tempfile"
 }
 
-function runcpp {
-    tempfile="$(mktemp)"
-    g++ "$1" -o "${tempfile}"
-    ${tempfile}
-    rm ${tempfile}
-}
+export NVM_DIR="$HOME/.nvm"
+  . "/usr/local/opt/nvm/nvm.sh"
