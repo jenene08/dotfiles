@@ -1,8 +1,8 @@
-source-zsh ~/.zshrc
-source-zsh ~/.zshenv
+source-zsh ~/.zshrc --overwrite-alias
+source-zsh ~/.zshenv --overwrite-alias
 
 # プロンプト
-# $PROMPT = "{GREEN}{cwd}\n{WHITE}$ "
+$PROMPT = "{GREEN}{cwd}\n{WHITE}(xonsh) $ "
 # Ctrl + D で終了しない
 $IGNOREEOF = True
 # tabではなく空白4つ
@@ -24,4 +24,4 @@ $SUPPRESS_BRANCH_TIMEOUT_MESSAGE = True
 # aliases["la"] = "ls -la"
 # aliases["ll"] = "ls -l"
 # aliases["rgr"] = "ranger"
-# aliases["relogin"] = "exec $SHELL"
+aliases["relogin"] = "exec '/usr/local/var/pyenv/shims/xonsh'"
