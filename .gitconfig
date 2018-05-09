@@ -1,8 +1,8 @@
 [core]
 	quotepath = false
-	excludesfile = /Users/andrey/.gitignore_global
-	attributesfile = /Users/andrey/.gitattributes
-	editor = /usr/local/bin/vim
+	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
+
 [diff "xlsx"]
 	binary = true
 	textconv = $GOPATH/bin/git-xlsx-textconv
@@ -19,11 +19,3 @@
 [user]
 	name = jenene08
 	email = 33044125+jenene08@users.noreply.github.com
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[commit]
-	template = /Users/andrey/.stCommitMsg
